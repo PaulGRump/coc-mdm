@@ -1,18 +1,27 @@
 \todo{
-    Die Einleitung muss definitiv überarbeitet werden.
+    Die Einleitung muss definitiv überarbeitet werden. Tendenziell sollte sie eher kürzer werden als länger.
+    Ich sehe 2 sinnvolle Möglichkeiten zum Strukturieren:
+    1. Ein kurzer Abschnitt zu jedem der folgenden Themen (also Core Loop, Roguelite, Spielererfahrung, Thematische Einbettung, Projektplan).
+    	- Die können jeweils sehr kurz sein, bei manchen reicht ein einzelner Paragraph!
+    2. Unterabschnitt pro Spielmodus. Aktuell hat der Roguelite effektive 3 bzw. 4 Abschnitte.
 }
 
-\coc\ ist ein digitales Singleplayer-Kartenspiel und Roguelite, dessen Kern ein von uns neu entwickelter Gameplay Loop ist. Statt auf einem etablierten Kartenkampf- oder Deckbuilding-System aufzubauen, basiert das Spiel auf einem eigenständigen, puzzle-artigen Spielprinzip: Die einzelnen Level, sogenannte Encounters, stellen jeweils strategische Problemsituationen dar, die mit den verfügbaren Karten, Ressourcen und Fähigkeiten gelöst werden müssen. Dieser neuartige Encounter-basierte Gameplay Loop bildet das zentrale Fundament des gesamten Spiels und soll ein Spielgefühl schaffen, das sich deutlich von bestehenden digitalen Kartenspielen und Roguelites unterscheidet. Neben dem Roguelite-Modus hat das Spiel zusätzlich einen reinen Puzzle-Modus, sowie einen Encounter Editor, in welchem Spieler ihre eigenen Puzzle-Encounter erstellen und mit anderen Spielern teilen können.
+\coc\ ist ein digitales Singleplayer-Kartenspiel und Roguelite, dessen Kern ein von uns neu entwickelter Gameplay Loop ist.
+Statt auf einem etablierten Kartenkampf- oder Deckbuilding-System aufzubauen, basiert das Spiel auf einem eigenständigen, puzzle-artigen Spielprinzip:
+Die einzelnen Level, sogenannte `Encounter', stellen jeweils strategische Problemsituationen dar, die mit den verfügbaren Karten, Ressourcen und Fähigkeiten gelöst werden müssen.
+Dieser neuartige Encounter-basierte Gameplay Loop bildet das zentrale Fundament des gesamten Spiels und soll ein Spielgefühl schaffen, das sich deutlich von bestehenden digitalen Kartenspielen und Roguelites unterscheidet.
+Neben dem Roguelite-Modus hat das Spiel zusätzlich einen reinen Puzzle-Modus, sowie einen Encounter Editor, in welchem Spieler ihre eigenen Puzzle-Encounter erstellen und mit anderen Spielern teilen können.
 
 \subsubsection*{Roguelite-Struktur und Loadout-Building}
-Auf dieser neu entwickelten Kernmechanik baut eine umfangreiche Roguelite-Struktur auf. Während eines Runs entwickelt der Spieler sein persönliches Loadout kontinuierlich weiter, indem neue Zauber gewählt und bestehende Fähigkeiten durch unterschiedliche Upgrades spezialisiert werden.
+Auf dieser neu entwickelten Kernmechanik baut eine umfangreiche Roguelite-Struktur auf.
+Während eines Runs entwickelt der Spieler sein persönliches Loadout kontinuierlich weiter, indem neue Zauber gewählt und bestehende Fähigkeiten durch unterschiedliche Upgrades spezialisiert werden.
 Anders als bei klassischen Deckbuilding-Roguelites werden diese Fähigkeiten jedoch nicht als Karten aus einem Deck zufällig gezogen. Die Fähigkeiten des gewählten Loadouts stehen dem Spieler in jedem Encounter direkt zur Verfügung. Der strategische Anspruch verlagert sich dadurch weg von der lokalen Optimierung einer zufällig gezogenen Kartenhand hin zu der Frage, wie ein bewusst zusammengestelltes Set an Fähigkeiten möglichst wirkungsvoll auf die jeweilige Spielsituation und die Karten eines Encounters angewandt werden kann. Dadurch sollen Zufallseinflüsse reduziert und gleichzeitig Player Agency, Vorausplanung und die Bedeutung der eigenen Build-Entscheidungen gestärkt werden.
 Unterschiedliche Zauber, Upgrade-Pfade, Kombinationen und Synergien ermöglichen dabei verschiedene Archetypen und deutlich unterschiedliche Spielweisen zwischen einzelnen Runs.
 
 \subsubsection*{Tiefgreifende Upgrade-Systeme}
 Ein besonderer Schwerpunkt liegt auf der qualitativen Weiterentwicklung der Fähigkeiten. Upgrades sollen nicht lediglich numerische Werte erhöhen, sondern die Funktionsweise eines Zaubers verändern, neue Interaktionen eröffnen und unterschiedliche Spezialisierungen ermöglichen. Einzelne Fähigkeiten können sich dadurch im Verlauf eines Runs in unterschiedliche Richtungen entwickeln und innerhalb verschiedener Builds jeweils andere Rollen einnehmen. Das Upgrade-System soll damit deutlich stärker auf neue spielerische Möglichkeiten und Synergien ausgerichtet sein als auf reine Wertsteigerungen.
 
-\subsubsection*{Metaprogression und Encounter-Vielfalt}
+\subsubsection*{Metaprogression und Level-Vielfalt}
 Ergänzt wird die Entwicklung innerhalb eines Runs durch eine persistente Metaprogression. Über mehrere Runs hinweg werden neue Möglichkeiten, Fähigkeiten und strategische Optionen freigeschaltet und die Ausgangssituation des Spielers wird? weiterentwickelt. Reguläre Encounters werden durch besondere Begegnungen, Special Encounters und Bossgegner ergänzt und sollen sowohl spielerisch als auch thematisch unterschiedliche Herausforderungen bieten.
 Fantasy-Welt und fortlaufende Geschichte
 Über seine mechanischen Systeme hinaus ist Cycle of Cinder in einer eigenständigen Fantasy-Welt mit Lore und umfangreichem Worldbuilding angesiedelt. Das Spiel folgt einer fortlaufenden Geschichte, die sich während der Runs entwickelt und die spielerischen Systeme in einen narrativen und thematischen Kontext einbettet. Orte, Begegnungen, Charaktere und Fähigkeiten sollen als Bestandteile einer zusammenhängenden Spielwelt erfahrbar sein und nicht lediglich als abstrakte Elemente eines Roguelite-Systems auftreten.
@@ -26,12 +35,11 @@ Cycle of Cinder soll seinen neu entwickelten Encounter-basierten Gameplay Loop i
     \paragraph{Challenge-Modus -- handgefertigte Puzzle}
     Der Challenge-Modus konzentriert sich vollständig auf den Puzzle-Charakter des Gameplay Loops. Die einzelnen Challenges werden von Hand entworfen und können vom Spieler beliebig oft wiederholt werden, um eine Lösung zu finden. Anders als im Roguelite-Modus steht dabei nicht die langfristige Entwicklung eines Builds oder das Überleben eines Runs im Mittelpunkt, sondern das spielerische Lösen einer gezielt konstruierten Problemstellung.
     Jeder Encounter soll dabei eine qualitativ neue Herausforderung darstellen und vom Spieler ein anderes Verständnis der zugrunde liegenden Mechaniken, Interaktionen oder Kombinationsmöglichkeiten verlangen. Die Challenges sollen dadurch nicht lediglich zunehmend schwieriger werden, sondern immer wieder neue Fragestellungen aufwerfen und unterschiedliche Aspekte des Spielsystems gezielt in den Mittelpunkt stellen.
-    
+
     \paragraph{Roguelite-Modus -- das Herzstück des Spiels}
     Das zentrale Spielerlebnis von Cycle of Cinder bildet der Roguelite-Modus. Hier werden die Encounter nicht ausschließlich von Hand vorgegeben, sondern mithilfe prozeduraler Systeme erzeugt und zu variierenden Runs zusammengesetzt. Dadurch muss der Spieler seine vorhandenen Fähigkeiten immer wieder auf neue Spielsituationen anwenden und seinen Build im Verlauf eines Runs kontinuierlich weiterentwickeln.
     Zwischen den Encountern werden neue Zauber und Upgrades gewählt, wodurch unterschiedliche Builds, Synergien und Archetypen entstehen können. Die Kombination aus prozedural variierenden Encountern, Loadout-Building, qualitativen Spell-Upgrades und persistenter Metaprogression soll eine hohe Wiederspielbarkeit erzeugen, ohne den Kern des Spiels auf zufallsbasierte Kartenhände zu verlagern.
-    
+
     \paragraph{Community Editor -- Encounters von Spielern für Spieler}
     Als dritter Spielbereich ist ein Community Editor geplant, mit dem Spieler eigene Encounters auf Grundlage derselben Systeme erstellen können, die auch für die Entwicklung der offiziellen Spielinhalte verwendet werden. Selbst erstellte Herausforderungen sollen anschließend über Steam mit anderen Spielern geteilt und gespielt werden können.
     Der Editor soll den puzzle-artigen Charakter des Spiels über die von uns entwickelten Inhalte hinaus erweitern. Spieler können eigene Problemsituationen konstruieren, ungewöhnliche Kombinationen der vorhandenen Mechaniken ausprobieren und besonders interessante oder anspruchsvolle Herausforderungen für die Community entwickeln. Dadurch soll langfristig ein zusätzlicher, von der Community getragener Pool an spielbaren Inhalten entstehen.
-    

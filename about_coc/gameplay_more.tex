@@ -1,13 +1,23 @@
 \subsection{Der Roguelite-Modus}
-Im Roguelite-Modus werden mehrere Level zu einer zusammenhängenden Reise verbunden. 
+Im Roguelite-Modus werden mehrere Level zu einer zusammenhängenden Reise verbunden.
 Jeder \emph{Run}, also jede angetretene Reise, beginnt mit der Auswahl eines Zaubers als Startfähigkeit, sodass sich verschiedene Runs von Anfang an in Hinsicht der angestrebten Strategie und Lösungsansätze unterscheiden können.
 Während der Reise entwickelt der Spieler seine Fähigkeiten kontinuierlich durch neue Zauber, Upgrades und Ressourcen weiter, die er als Belohnung für erfolgreich gelöste Level erhält.
-Ein Level muss dabei nicht perfekt gelöst werden, um den Run fortzusetzen. 
-Kann ein Level mit den verbleibenden Ressourcen nicht vollständig gelöst werden, kann der Spieler über eine `Rasten' Aktion zusätzliche Ressourcen erhalten. 
-Das Rasten reduziert jedoch die für jede Reise begrenzte Zeit-Ressource um 1. 
-Ein weniger effizient gelöstes Level führt damit nicht zu einem unmittelbaren Scheitern, sondern hat Konsequenzen für den weiteren Verlauf des Runs. 
+Ein Level muss dabei nicht perfekt gelöst werden, um den Run fortzusetzen.
+Kann ein Level mit den verbleibenden Ressourcen nicht vollständig gelöst werden, kann der Spieler über eine `Rasten' Aktion zusätzliche Ressourcen erhalten.
+Das Rasten reduziert jedoch die für jede Reise begrenzte Zeit-Ressource um 1.
+Ein weniger effizient gelöstes Level führt damit nicht zu einem unmittelbaren Scheitern, sondern hat Konsequenzen für den weiteren Verlauf des Runs.
 Der Spieler wird nicht nur danach bewertet, ob er eine einzelne Aufgabe lösen kann, sondern danach, wie gut er seine Ressourcen über die gesamte Reise hinweg einsetzt.
 Der Run endet, wenn die verfügbare Zeit zum Rasten oder für andere Aktionen innerhalb der Spielwelt ausgegeben wurde.
+
+\subsubsection{Weltkarte und Struktur eines Runs}
+Ein Run in Cycle of Cinder führt den Spieler über eine Weltkarte mit verschiedenen Orten und den dazwischenliegenden Reisewegen.
+Entscheidet sich der Spieler, von einem Ort zum nächsten zu reisen, wird ein Weg-Encounter ausgelöst, welches die Ereignisse und Hindernisse auf dieser Reise repräsentiert.
+Diese Encounter sind allgemeiner gehaltene Level und weniger stark an einen konkreten Ort gebunden.
+Am Zielort angekommen können unterschiedliche ortsspezifische Inhalte auftreten.
+Dazu gehören beispielsweise Dialoge mit Charakteren, Begegnungen mit Händlern oder andere Interaktionsmöglichkeiten sowie speziell für diesen Ort entwickelte Level.
+Anschließend entscheidet der Spieler, welchen Ort er als Nächstes aufsuchen möchte, wodurch erneut eine Reise mit einem Weg-Encounter beginnt.
+Auf diese Weise entsteht der grundlegende Rhythmus eines Runs aus Reise, Weg-Encounter, Zielort mit ortsspezifischem Inhalt und schließlich der Wahl des nächsten Ziels.
+Die Weltkarte verbindet damit die einzelnen Encounters zu einer nachvollziehbaren Reise und bildet zugleich den Rahmen für Entscheidungen, Story, Charaktere und weitere Spielsysteme.
 
 \subsubsection{Verschiebung des spielerischen Anspruchs}
 \todo{Bei diesem Abschnitt bin ich mir nicht so recht sicher. Braucht vlt.\ nochmal etwas Draufschauen.}
@@ -17,13 +27,13 @@ Cycle of Cinder soll zwischen diesen Polen liegen. Die einzelnen Encounters blei
 Aus dieser Designentscheidung ergeben sich unmittelbar die Anforderungen an die prozedurale Generierung der Roguelite-Encounters.
 
 \subsubsection{Upgradesystem}
-Zauber bilden den zentralen Werkzeugkasten des Spielers innerhalb eines Levels. 
-Jeder Zauber besitzt zunächst eine klar definierte Basisfunktion und kann während eines Runs durch \emph{Upgrades} weiterentwickelt werden. 
+Zauber bilden den zentralen Werkzeugkasten des Spielers innerhalb eines Levels.
+Jeder Zauber besitzt zunächst eine klar definierte Basisfunktion und kann während eines Runs durch \emph{Upgrades} weiterentwickelt werden.
 Upgrades werden im Spiel als Belohnungen angeboten und ermöglichen es, die verfügbaren Zauber gezielt zu spezialisieren.
-Dabei gibt es sowohl Verbesserungen, die einen Zauber flexibler oder häufiger einsetzbar machen, als auch funktionale Upgrades, die seine Wirkungsweise erweitern oder verändern. 
+Dabei gibt es sowohl Verbesserungen, die einen Zauber flexibler oder häufiger einsetzbar machen, als auch funktionale Upgrades, die seine Wirkungsweise erweitern oder verändern.
 Die Tiefe dieses Systems lässt sich beispielhaft am Zauber \emph{Piercing Shot} zeigen.
 
-In seiner Basisversion reduziert \emph{Piercing Shot} die Kosten einer Karte um eine Ressource, kann jedoch nur auf Karten angewandt werden, die ausschließlich eine einzige Ressourcenart kosten. 
+In seiner Basisversion reduziert \emph{Piercing Shot} die Kosten einer Karte um eine Ressource, kann jedoch nur auf Karten angewandt werden, die ausschließlich eine einzige Ressourcenart kosten.
 Diese Einschränkung macht den Zauber zunächst situativ und verlangt häufig, seine Einsatzbedingung zunächst durch andere Kartenmechaniken oder Fähigkeiten herzustellen.
 Im Verlauf eines Runs können unter anderem folgende Upgrades verfügbar werden:
 \begin{description}[itemsep=0pt]
@@ -35,13 +45,13 @@ Im Verlauf eines Runs können unter anderem folgende Upgrades verfügbar werden:
     \item[Wiederaufladen:] Durch bestimmte Ereignisse, beispielsweise wenn mehrere Karten einer konkreten Farbe bezahlt wurden, wird \emph{Piercing Shot} erneut verfügbar.
 \end{description}
 
-Diese und weitere Upgrades erhöhen nicht lediglich die Stärke des Zaubers. 
-Sie beeinflussen auch, welche Situationen \emph{Piercing Shot} lösen kann, wie häufig er eingesetzt werden kann, mit welchen Karten er synergiert und welche Entscheidungen der Spieler während eines Levels priorisiert. 
+Diese und weitere Upgrades erhöhen nicht lediglich die Stärke des Zaubers.
+Sie beeinflussen auch, welche Situationen \emph{Piercing Shot} lösen kann, wie häufig er eingesetzt werden kann, mit welchen Karten er synergiert und welche Entscheidungen der Spieler während eines Levels priorisiert.
 Je nach gewählter Kombination kann sich derselbe Basiszauber dadurch zu deutlich unterschiedlichen Varianten entwickeln.
 Das Upgrade-System soll auf diese Weise dafür sorgen, dass die Zauberfähigkeiten des Spielers nicht einfach durch erhöhte Zahlenwerte verbessert werden, sondern primär durch neue mechanische Möglichkeiten und zunehmend komplexe Synergien.
 
 %% Folgender Textabschnitt passt aktuell nirgendwo so richtig hin:
-% Der Tauschzauber kann beispielsweise zusätzliche Effekte auf den beiden getauschten Karten auslösen, der Verschiebezauber mit den Karten interagieren, über die hinweg verschoben wird, und der Anhebzauber sowohl beim Entfernen von Karten als auch bei deren Rückkehr weitere Effekte auslösen. 
+% Der Tauschzauber kann beispielsweise zusätzliche Effekte auf den beiden getauschten Karten auslösen, der Verschiebezauber mit den Karten interagieren, über die hinweg verschoben wird, und der Anhebzauber sowohl beim Entfernen von Karten als auch bei deren Rückkehr weitere Effekte auslösen.
 % Weitere Bewegungszaubers und eigene Upgrade-Pfade sollen im Verlauf des Spiels freigeschaltet werden und zusätzliche Möglichkeiten eröffnen, die Kartenreihenfolge zu manipulieren.
 
 \subsubsection{Prozedurale Encounter}
@@ -59,8 +69,8 @@ Die Entwicklung eines solchen Generators stellt entsprechend einen ambitionierte
 Damit ist die vollständig prozedurale Generierung das angestrebte Ziel, ohne dass die Funktionsfähigkeit des Roguelite-Modus von ihrem Erfolg abhängig ist.
 
 \subsubsection{Belohnungen und Fortschritt innerhalb der Runs}
-Nach jedem erfolgreich abgeschlossenen Level wählt der Spieler eine Belohnung aus einer zufälligen Auswahl. 
-Dadurch entwickelt sich sein Build kontinuierlich über den Verlauf eines Runs weiter. 
+Nach jedem erfolgreich abgeschlossenen Level wählt der Spieler eine Belohnung aus einer zufälligen Auswahl.
+Dadurch entwickelt sich sein Build kontinuierlich über den Verlauf eines Runs weiter.
 Die möglichen Belohnungen lassen sich grundsätzlich in vier Kategorien einteilen:
 \begin{itemize}
     \item Metaprogressions-Ressourcen, die über den aktuellen Run hinaus erhalten bleiben und anschließend für persistenten Fortschritt und Verbesserungen eingesetzt werden können.
@@ -69,8 +79,48 @@ Die möglichen Belohnungen lassen sich grundsätzlich in vier Kategorien einteil
     \item Upgrades bestehender Zauber, durch die bereits gewählte Fähigkeiten weiterentwickelt, spezialisiert oder um zusätzliche Mechaniken und Synergien ergänzt werden.
 \end{itemize}
 
-Damit steht der Spieler nach jedem Level vor einer Entscheidung zwischen kurzfristigem Nutzen, langfristigem Fortschritt und der Weiterentwicklung seines aktuellen Builds. 
+Damit steht der Spieler nach jedem Level vor einer Entscheidung zwischen kurzfristigem Nutzen, langfristigem Fortschritt und der Weiterentwicklung seines aktuellen Builds.
 Insbesondere die Wahl neuer Zauber und Upgrades bestimmt, welche Archetypen und Synergien sich innerhalb eines Runs entwickeln und wie gut diese Fähigkeiten mit den folgenden Levels umgehen können.
-Über die Dauer eines Runs soll so schrittweise ein immer stärker individualisierter Build entstehen. 
-Ähnlich wie bei anderen erfolgreichen Roguelites wird die regelmäßige Auswahl von Belohnungen damit zu einem wesentlichen Bestandteil des Spielflusses: 
+Über die Dauer eines Runs soll so schrittweise ein immer stärker individualisierter Build entstehen.
+Ähnlich wie bei anderen erfolgreichen Roguelites wird die regelmäßige Auswahl von Belohnungen damit zu einem wesentlichen Bestandteil des Spielflusses:
 Nicht nur das erfolgreiche Spielen der Level selbst, sondern auch die Entscheidungen zwischen ihnen bestimmen, wie sich ein Run entwickelt.
+
+\subsubsection{Metaprogression über Runs hinweg}
+Neben der Entwicklung des eigenen Builds innerhalb eines Runs soll \coc\ eine umfangreiche persistente Metaprogression bieten.
+Fortschritt zwischen einzelnen Runs soll dabei auf zwei unterschiedlichen Ebenen stattfinden.
+Die erste Ebene umfasst direkte und leicht verständliche Verbesserungen der Ausgangssituation.
+Dazu können beispielsweise mehr verfügbare Zeit oder Lebenspunkte, ein höheres Zauberlimit, weitere Upgrade-Slots für einzelne Zauber, bessere Wahrscheinlichkeiten auf hochwertige Belohnungen oder zusätzliche Ressourcen gehören, mit denen angebotene Belohnungen neu ausgewürfelt werden können.
+Diese Verbesserungen sorgen dafür, dass der Spieler auch nach einem gescheiterten Run einen dauerhaften Fortschritt wahrnimmt und sich seine Möglichkeiten schrittweise erweitern.
+Darüber hinaus ist ein komplexeres System geplant, das sich in seiner Grundidee am Arcana-System von \emph{Hades II} orientiert.
+Anstatt alle freigeschalteten Vorteile automatisch gleichzeitig zu aktivieren, stehen dem Spieler verschiedene permanente Modifikatoren zur Auswahl, die vor jedem Run individuell zusammengestellt werden können.
+Die verfügbaren Plätze beziehungsweise ein begrenztes Punktebudget verhindern dabei, dass sämtliche Vorteile gleichzeitig genutzt werden.
+Dadurch besteht Metaprogression nicht ausschließlich darin, den Spieler mit jedem Run numerisch stärker zu machen.
+Neue Freischaltungen erweitern vielmehr auch die Anzahl möglicher Entscheidungen darüber, mit welchen dauerhaften Vorteilen und strategischen Schwerpunkten ein neuer Run begonnen werden soll.
+Mit zunehmendem Fortschritt wächst damit nicht nur die Stärke des Spielers, sondern auch die Vielfalt möglicher Ausgangskonfigurationen und Spielweisen.
+
+\subsubsection{Besondere Level}
+Um spezielle Situationen im Spiel besonders hervorzuheben und Monotonie zu vermeiden, können einzelne Level um zusätzliche Regeln erweitert oder durch spezielle Boss-Gegner hervorgehoben werden.
+
+\textbf{Zusatzregeln} sind für ein Level geltende Bedingungen wie beispielsweise, die das Lösen erschweren oder erleichtern.
+
+\begin{center}
+	\glqq Alle roten Karten kosten eine Feuer Ressource mehr\grqq
+\end{center}
+oder
+\begin{center}
+	\glqq Blaue Karten verringern, wenn sie bezahlt werden, die Kosten ihrer Nachbarn um ein Feuer\grqq
+\end{center}
+Dafür wurde ein modulares System entwickelt, das die normalen Encounter-Regeln um zusätzliche positive und negative Effekte erweitert und dadurch eine hohe Variabilität erzeugt.
+Die Besonderheit liegt darin, dass nicht nur unterschiedliche Sonderregeln kombiniert werden können, sondern auch verschiedene Regelmodelle bestimmen, wann und wie diese aktiv sind.
+So können beispielsweise gleichzeitig ein positiver und ein negativer Effekt gelten, während unterschiedliche Mechanismen festlegen, welches Effektpaar aktuell aktiv ist.
+Ein Wechsel kann etwa nach einer bestimmten Anzahl von Aktionen erfolgen oder davon abhängen, welche Farbe die zuletzt bezahlte Karte hatte.
+Die zusätzlichen Regeln können sehr unterschiedliche Aspekte eines Encounters verändern.
+Karten bestimmter Farben oder Positionen können beispielsweise teurer oder günstiger werden oder zusätzliche positive beziehungsweise negative Effekte erhalten -- etwa beim Bezahlen Ressourcen stehlen oder die Kosten benachbarter Karten reduzieren.
+Durch die Kombination aus unterschiedlichen Effekten, positiven und negativen Regeln sowie verschiedenen Wechselmechanismen kann aus einem modularen System eine große kombinatorische Zahl qualitativ unterschiedlicher Level entstehen, ohne dass für jede Variante vollständig neue Mechaniken entwickelt werden müssen.
+
+\textbf{Boss-Level} hingegen stellen die aufwendigsten und am stärksten individualisierten Encounter des Spiels dar.
+Während Zusatzregeln den regulären Gameplay Loop durch neue Regeln und Effekte variieren, können Boss Encounters deutlich weiter gehen und eigene Mechaniken, Regeln sowie alternative Zielbedingungen einführen.
+Statt wie gewohnt einfach alle Encounter-Karten spielen zu müssen, könnte die Besonderheit eines Bosss-Levels beispielsweise darin bestehen, dass der Boss Karten innerhalb der Reihe angreift und ihnen Schaden zufügt.
+Der Spieler muss dann nicht nur Ressourcen und Kartenmechaniken verwalten, sondern zusätzlich entscheiden, welche Karten zuerst gerettet werden müssen, bevor sie vom Boss zerstört werden.
+Dadurch kann ein Encounter beispielsweise zu einem regelrechten Wettrennen werden: Der Spieler versucht, eine bestimmte Anzahl von Karten rechtzeitig zu bezahlen und zu retten, während der Boss parallel versucht, sie durch Schaden zu vernichten.
+Boss Encounters können den bekannten Gameplay Loop damit wesentlich stärker verändern als Special Encounters und sollen als besondere Höhepunkte eines Runs jeweils neue strategische Anforderungen stellen.
