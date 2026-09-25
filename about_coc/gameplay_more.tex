@@ -1,0 +1,76 @@
+\subsection{Der Roguelite-Modus}
+Im Roguelite-Modus werden mehrere Level zu einer zusammenhängenden Reise verbunden. 
+Jeder \emph{Run}, also jede angetretene Reise, beginnt mit der Auswahl eines Zaubers als Startfähigkeit, sodass sich verschiedene Runs von Anfang an in Hinsicht der angestrebten Strategie und Lösungsansätze unterscheiden können.
+Während der Reise entwickelt der Spieler seine Fähigkeiten kontinuierlich durch neue Zauber, Upgrades und Ressourcen weiter, die er als Belohnung für erfolgreich gelöste Level erhält.
+Ein Level muss dabei nicht perfekt gelöst werden, um den Run fortzusetzen. 
+Kann ein Level mit den verbleibenden Ressourcen nicht vollständig gelöst werden, kann der Spieler über eine `Rasten' Aktion zusätzliche Ressourcen erhalten. 
+Das Rasten reduziert jedoch die für jede Reise begrenzte Zeit-Ressource um 1. 
+Ein weniger effizient gelöstes Level führt damit nicht zu einem unmittelbaren Scheitern, sondern hat Konsequenzen für den weiteren Verlauf des Runs. 
+Der Spieler wird nicht nur danach bewertet, ob er eine einzelne Aufgabe lösen kann, sondern danach, wie gut er seine Ressourcen über die gesamte Reise hinweg einsetzt.
+Der Run endet, wenn die verfügbare Zeit zum Rasten oder für andere Aktionen innerhalb der Spielwelt ausgegeben wurde.
+
+\subsubsection{Verschiebung des spielerischen Anspruchs}
+\todo{Bei diesem Abschnitt bin ich mir nicht so recht sicher. Braucht vlt.\ nochmal etwas Draufschauen.}
+Mit dem Wechsel vom Challenge-Modus zum Roguelite-Modus verschiebt sich auch der Schwerpunkt des spielerischen Anspruchs. Während bei einer Challenge die Qualität der Lösung eines einzelnen Puzzles im Mittelpunkt steht, wird im Roguelite zusätzlich relevant, wie gut der Spieler seinen Build über den gesamten Run entwickelt hat. Wie effizient ein Encounter bewältigt werden kann, hängt somit nicht nur von den Entscheidungen innerhalb des Encounters ab, sondern auch von den zuvor gewählten Zaubern, Upgrades und Synergien.
+Diese Gewichtung ist ein typisches Gestaltungsmittel von Roguelites und kann je nach Spiel sehr unterschiedlich ausfallen. Ein Extrembeispiel bilden sogenannte Survivor-Likes wie Vampire Survivors, bei denen ein großer Teil der strategischen Tiefe in der Auswahl und Kombination von Fähigkeiten und Upgrades liegt, während die unmittelbaren taktischen Entscheidungen bewusst vergleichsweise einfach gehalten sind.
+Cycle of Cinder soll zwischen diesen Polen liegen. Die einzelnen Encounters bleiben eigenständige strategische Herausforderungen, deren gutes Spielen einen wesentlichen Unterschied macht. Gleichzeitig soll ein gut aufgebautes Loadout spürbar belohnt werden und dazu führen können, dass bestimmte Encounters deutlich einfacher oder effizienter zu bewältigen sind. Der Roguelite-Modus verbindet damit die Qualität des situativen Puzzellösens mit der langfristigen Qualität der Build-Entscheidungen.
+Aus dieser Designentscheidung ergeben sich unmittelbar die Anforderungen an die prozedurale Generierung der Roguelite-Encounters.
+
+\subsubsection{Upgradesystem}
+Zauber bilden den zentralen Werkzeugkasten des Spielers innerhalb eines Levels. 
+Jeder Zauber besitzt zunächst eine klar definierte Basisfunktion und kann während eines Runs durch \emph{Upgrades} weiterentwickelt werden. 
+Upgrades werden im Spiel als Belohnungen angeboten und ermöglichen es, die verfügbaren Zauber gezielt zu spezialisieren.
+Dabei gibt es sowohl Verbesserungen, die einen Zauber flexibler oder häufiger einsetzbar machen, als auch funktionale Upgrades, die seine Wirkungsweise erweitern oder verändern. 
+Die Tiefe dieses Systems lässt sich beispielhaft am Zauber \emph{Piercing Shot} zeigen.
+
+In seiner Basisversion reduziert \emph{Piercing Shot} die Kosten einer Karte um eine Ressource, kann jedoch nur auf Karten angewandt werden, die ausschließlich eine einzige Ressourcenart kosten. 
+Diese Einschränkung macht den Zauber zunächst situativ und verlangt häufig, seine Einsatzbedingung zunächst durch andere Kartenmechaniken oder Fähigkeiten herzustellen.
+Im Verlauf eines Runs können unter anderem folgende Upgrades verfügbar werden:
+\begin{description}[itemsep=0pt]
+    \item[Mehr Ziele:] Piercing Shot kann nun zwei und mit einem weiteren Upgrade bis zu drei Karten gleichzeitig treffen. Die gewählten Karten dürfen unterschiedliche Kosten besitzen, müssen jedoch genau eine gemeinsame Ressourcenart aufweisen.
+    \item[Stärkerer Effekt:] Die gemeinsame Ressourcenart wird nicht nur um eins, sondern stärker reduziert.
+    \item[Größere räumliche Freiheit:]
+     Einschränkungen hinsichtlich der Position oder Nachbarschaft der ausgewählten Karten können aufgehoben werden.
+    \item[Cooldown:] Nach einer bestimmten Anzahl von Aktionen wird \emph{Piercing Shot} erneut verfügbar.
+    \item[Wiederaufladen:] Durch bestimmte Ereignisse, beispielsweise wenn mehrere Karten einer konkreten Farbe bezahlt wurden, wird \emph{Piercing Shot} erneut verfügbar.
+\end{description}
+
+Diese und weitere Upgrades erhöhen nicht lediglich die Stärke des Zaubers. 
+Sie beeinflussen auch, welche Situationen \emph{Piercing Shot} lösen kann, wie häufig er eingesetzt werden kann, mit welchen Karten er synergiert und welche Entscheidungen der Spieler während eines Levels priorisiert. 
+Je nach gewählter Kombination kann sich derselbe Basiszauber dadurch zu deutlich unterschiedlichen Varianten entwickeln.
+Das Upgrade-System soll auf diese Weise dafür sorgen, dass die Zauberfähigkeiten des Spielers nicht einfach durch erhöhte Zahlenwerte verbessert werden, sondern primär durch neue mechanische Möglichkeiten und zunehmend komplexe Synergien.
+
+%% Folgender Textabschnitt passt aktuell nirgendwo so richtig hin:
+% Der Tauschzauber kann beispielsweise zusätzliche Effekte auf den beiden getauschten Karten auslösen, der Verschiebezauber mit den Karten interagieren, über die hinweg verschoben wird, und der Anhebzauber sowohl beim Entfernen von Karten als auch bei deren Rückkehr weitere Effekte auslösen. 
+% Weitere Bewegungszaubers und eigene Upgrade-Pfade sollen im Verlauf des Spiels freigeschaltet werden und zusätzliche Möglichkeiten eröffnen, die Kartenreihenfolge zu manipulieren.
+
+\subsubsection{Prozedurale Encounter}
+Für den Roguelite-Modus von Cycle of Cinder ist ein prozedurales System geplant, das bei jedem Run neue Encounter aus den vorhandenen Karten und Mechaniken erzeugt. Der Anspruch dieses Systems unterscheidet sich dabei bewusst von der Gestaltung der handgefertigten Challenge Encounter.
+Ein handcrafted Challenge-Encounter wird gezielt als einzelnes Puzzle entworfen. Dabei werden das verfügbare Loadout und die Encounter Karten Reihe geziehlt aufeinander abgestimmt, um eine möglichst interessante und oftmals anspruchsvolle Problemstellung zu schaffen. Ein solches Puzzle darf bewusst mehrere Versuche erfordern, da der Spieler es beliebig oft wiederholen, verschiedene Ansätze ausprobieren und schrittweise eine Lösung entwickeln kann.
+Für den Roguelite-Modus wäre derselbe Anspruch weder notwendig noch wünschenswert. Ein Encounter ist hier nur ein Bestandteil einer längeren Folge von Herausforderungen innerhalb eines Runs. Ein Encounter der so gestaltet ist, dass ein durchschnittlicher Spieler mehrere Versuche benötigt, wäre im Kontext eines Roguelites nicht wünschenswert: Entweder müsste der Spieler mehrfach versuchen dürfen, was in einem Roguelite viel zulange dauern würde und den Fluss zerstören würde, oder die Spieler würden ständig scheitern, was sich schlecht anfühlt.
+Hinzu kommt, dass die Qualität und Schwierigkeit eines Encounter-Puzzles stark vom aktuellen Loadout abhängt. Bei einer handgefertigten Challenge kann dieses Loadout bei der Konstruktion des Puzzles berücksichtigt werden. Im Roguelite-Modus trifft dagegen eine große Zahl unterschiedlicher Builds auf prozedural erzeugte Encounters. Eine automatische Anpassung der Encounter an die jeweilige Stärke des Loadouts wäre dabei sogar kontraproduktiv: Ein besonders gutes Loadout soll sich dadurch belohnend anfühlen, dass bestimmte Situationen deutlich leichter zu lösen sind. Umgekehrt soll ein wenig funktionaler Build spürbare Nachteile haben. Würde der Generator besonders starke Builds automatisch mit schwierigeren Encountern ausgleichen, würde die Bedeutung der Build-Entscheidungen belanglos werden.
+Der Algorithmus soll deshalb nicht versuchen, automatisch Puzzle auf dem Niveau handgefertigter Challenges zu erzeugen. Sein zentraler Qualitätsanspruch liegt vielmehr in der mechanischen Kohärenz der generierten Encounter. Die Mechaniken der enthaltenen Karten sollen innerhalb der erzeugten Situation grundsätzlich sinnvoll zum Tragen kommen können. Benötigt eine Karte beispielsweise eine gleichartige Nachbarkarte, muss der Encounter mindestens eine weitere entsprechende Karte enthalten. Verlangt eine Mechanik, dass eine Karte zwischen zwei blauen Karten positioniert wird, müssen genügend blaue Karten vorhanden sein, damit diese Bedingung überhaupt hergestellt werden kann. Auch die Verteilung der 3 Ressourcenkosten-Typen muss gut genug zu den durch Encounter Karten erzeugbaren/verringerbaren Ressourcen passen.
+Der Generator soll somit sicherstellen, dass aus den kombinierten Karten eine valide und strategisch interessante Spielsituation entstehen kann, ohne für den aktuellen Build eine bestimmte optimale Lösung vorzugeben. Wie leicht oder schwierig diese Situation mit dem jeweils gewählten Loadout zu bewältigen ist, bleibt bewusst Teil des Roguelite-Gameplays. Auf diese Weise können prozedural erzeugte Encounter für hohe Variation und Wiederspielbarkeit sorgen, während gleichzeitig die Relevanz von Loadout-Building, Synergien und langfristigen Entscheidungen innerhalb eines Runs erhalten bleibt.
+
+\subsubsection{Abgrenzung zu vorgefertigten Encounter-Pools}
+Viele Roguelites und Roguelite-Kartenspiele erzeugen ihre einzelnen Level oder Begegnungen nicht vollständig prozedural. Stattdessen existieren häufig für unterschiedliche Schwierigkeitsstufen oder Spielphasen Pools aus vorgefertigten Encountern, aus denen während eines Runs zufällig ausgewählt wird. Dadurch entsteht zwar Variation zwischen den Runs, die einzelnen Spielsituationen selbst wurden jedoch zuvor von Hand definiert.
+Für \coc\ ist ein weitergehender Ansatz geplant: Der Generator soll Encounter tatsächlich aus ihren einzelnen Karten, Mechaniken und Abhängigkeiten neu zusammensetzen. Ein solches System wäre deutlich flexibler als die Auswahl aus einem festen Pool und könnte mit einer vergleichsweise begrenzten Menge an Karten und Mechaniken eine wesentlich größere Zahl unterschiedlicher Spielsituationen erzeugen. Gerade für ein Spiel, dessen Level stark von Positionierung, Nachbarschaften, Ressourcen und Karteninteraktionen geprägt sind, bietet dieser Ansatz ein großes Potenzial für langfristige Variation und Wiederspielbarkeit.
+Die Entwicklung eines solchen Generators stellt entsprechend einen ambitionierteren technischen und gestalterischen Schritt dar. Aufgrund der klar definierbaren Regeln und Abhängigkeiten der Encounter-Karten halten wir diesen Ansatz jedoch für realistisch umsetzbar. Gleichzeitig besteht eine robuste Rückfalloption: Sollte sich im Entwicklungsprozess zeigen, dass eine vollständig prozedurale Generierung nicht in der gewünschten Qualität erreicht werden kann, kann das System auf ausreichend große Pools aus vorgefertigten und validierten Encounter-Konfigurationen zurückgreifen und diese abhängig von Schwierigkeitsgrad und Run-Fortschritt auswählen.
+Damit ist die vollständig prozedurale Generierung das angestrebte Ziel, ohne dass die Funktionsfähigkeit des Roguelite-Modus von ihrem Erfolg abhängig ist.
+
+\subsubsection{Belohnungen und Fortschritt innerhalb der Runs}
+Nach jedem erfolgreich abgeschlossenen Level wählt der Spieler eine Belohnung aus einer zufälligen Auswahl. 
+Dadurch entwickelt sich sein Build kontinuierlich über den Verlauf eines Runs weiter. 
+Die möglichen Belohnungen lassen sich grundsätzlich in vier Kategorien einteilen:
+\begin{itemize}
+    \item Metaprogressions-Ressourcen, die über den aktuellen Run hinaus erhalten bleiben und anschließend für persistenten Fortschritt und Verbesserungen eingesetzt werden können.
+    \item Run-Ressourcen, die unmittelbar den aktuellen Durchlauf unterstützen, beispielsweise Heilung, Gold oder mehr Auswahl bei späteren Belohnungen.
+    \item Neue Zauber, mit denen der Spieler neue strategische Möglichkeiten erschließt.
+    \item Upgrades bestehender Zauber, durch die bereits gewählte Fähigkeiten weiterentwickelt, spezialisiert oder um zusätzliche Mechaniken und Synergien ergänzt werden.
+\end{itemize}
+
+Damit steht der Spieler nach jedem Level vor einer Entscheidung zwischen kurzfristigem Nutzen, langfristigem Fortschritt und der Weiterentwicklung seines aktuellen Builds. 
+Insbesondere die Wahl neuer Zauber und Upgrades bestimmt, welche Archetypen und Synergien sich innerhalb eines Runs entwickeln und wie gut diese Fähigkeiten mit den folgenden Levels umgehen können.
+Über die Dauer eines Runs soll so schrittweise ein immer stärker individualisierter Build entstehen. 
+Ähnlich wie bei anderen erfolgreichen Roguelites wird die regelmäßige Auswahl von Belohnungen damit zu einem wesentlichen Bestandteil des Spielflusses: 
+Nicht nur das erfolgreiche Spielen der Level selbst, sondern auch die Entscheidungen zwischen ihnen bestimmen, wie sich ein Run entwickelt.

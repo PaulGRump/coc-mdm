@@ -1,0 +1,42 @@
+\documentclass[ngerman, a4paper]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage[bottom=3cm]{geometry}
+\usepackage{babel}
+\usepackage{enumitem}
+\usepackage[format=plain, indention=0em]{caption} % Make multiline captions not ugly.
+\usepackage{hyperref, cleveref-forward}
+
+\usepackage{todonotes}
+\setuptodonotes{inline}
+
+\title{Hier steht ein toller Titel}
+\author{Autor}
+\date{September 2026}
+
+\input{macros}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents % Weiß nicht, ob das drinnen bleiben sollte, aber es hilft zumindest beim Planen.
+
+\section{Einleitung}
+
+\section{Finanzplan}
+\todo{Oder so, keine Ahnung}
+
+\todo{
+    Ich glaube, noch ein paar mehr Bilder wären nicht verkehrt, um zum Einen die langen Textblöcke aufzubrechen, und zum anderen stärker zu zeigen, dass es nicht nur ein leeres Konzept ist sondern schon einiges existiert.
+}
+
+\section{Cycle of Cinder}
+    \input{about_coc/0 intro}
+    \input{about_coc/gameplay_core}
+    \input{about_coc/gameplay_more}
+    \input{about_coc/spielerfahrung}
+    \input{about_coc/setting}
+    \input{about_coc/prototype}
+
+\end{document}
