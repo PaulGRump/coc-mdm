@@ -1,0 +1,4 @@
+dictionaries = ["de", "en_gb"]
+flag_words = ["todo", "fixme"]
+ignore_paths = ["out/**/*"]
+ignore_patterns = ['\\.*?\b']
